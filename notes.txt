@@ -1,0 +1,8 @@
+Server Setup - 25 June 2026
+- Updated server with apt update
+- Installed and enabled nginx web server
+- Created teammate user with sudo access
+- Created webproject folder with index.html
+- Set correct permissions: 755 for folder, 644 for file
+- Confirmed SSH keys exist at ~/.ssh/
+- I am so proud of myself lol
