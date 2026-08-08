@@ -1,53 +1,70 @@
-# Cloud Networking Concepts
+AWS VPC - Virtual Private Cloud
 
-## Core Networking Fundamentals
-- IP Address: unique number identifying a device on a network
-- IPv4: 32-bit addressing (example: 192.168.1.1)
-- IPv6: 128-bit addressing (handles more devices)
-- Subnet: smaller section of a larger network for organisation and security
-- DNS: translates domain names like google.com into IP addresses
-- Port: numbered channel for network services (port 80: HTTP, port 443: HTTPS, port 22: SSH)
-- Firewall: monitors and controls incoming and outgoing traffic based on rules
-
-## AWS Cloud Networking
-
-### VPC (Virtual Private Cloud)
-Your own private network inside AWS.
+What is a VPC?
+A VPC is your own private, isolated network inside AWS.
 All AWS resources live inside a VPC.
-Think of it as your private office building inside the AWS cloud.
+Think of it as your private gated estate inside the AWS cloud.
 
-### Subnets
-- Public Subnet: can reach the internet, used for web servers
-- Private Subnet: no direct internet access, used for databases
+What I Built
+- Created a custom VPC called: my-custom-vpc
+- IP range: 10.0.0.0/16 (65,536 possible IP addresses)
+- Created a public subnet: 10.0.0.0/20
+- Created a private subnet
+- Internet Gateway attached to connect VPC to internet
+- Two route tables: one for public, one for private subnet
+- Security group allowing ports 22, 80, 443
+- Launched EC2 instance inside the public subnet
+- SSHed into server and confirmed nginx serving a webpage
 
-### Internet Gateway
+My Custom VPC Architecture
+Internet
+    |
+Internet Gateway
+    |
+my-custom-vpc (10.0.0.0/16)
+    |
+Public Subnet (10.0.0.0/20)
+    |
+EC2 instance (private IP: 10.0.3.129)
+Security Group: allow port 22, 80, 443
+
+Key Components
+
+VPC
+Your private network inside AWS.
+Nobody else on AWS can access your resources unless you allow it.
+
+Subnets
+Public subnet: internet can reach it, used for web servers.
+Private subnet: no direct internet access, used for databases.
+
+Internet Gateway
 Connects your VPC to the internet.
 Without it, nothing in your VPC can send or receive internet traffic.
 
-### Security Groups
-AWS version of a firewall attached to individual resources.
-Common rules:
-- Port 22 from my IP only: SSH access
-- Port 80 from anywhere: HTTP web traffic
-- Port 443 from anywhere: HTTPS web traffic
-- Deny everything else by default
-
-### NAT Gateway
-Allows private subnet resources to reach the internet outbound only.
-Nothing from the internet can initiate a connection inward.
-Used for: downloading updates on a private database server.
-
-### Route Tables
-Rules that direct where network traffic should go.
+Route Tables
+Rules that direct where network traffic goes.
 Public subnet route table sends all internet traffic through the Internet Gateway.
+Private subnet route table keeps traffic internal only.
 
-### Route 53
-AWS DNS service.
-Maps your domain name to your server IP address.
+Security Groups
+Firewall rules attached to individual EC2 instances.
+My security group rules:
+- Port 22: SSH access from anywhere
+- Port 80: HTTP web traffic from anywhere
+- Port 443: HTTPS web traffic from anywhere
+- Everything else: blocked by default
 
-### Elastic IP
-A static public IP address in AWS.
-Attach to an EC2 instance so the IP never changes when you restart the server.
+Key Concepts
+- VPC CIDR /16 gives 65,536 IP addresses
+- Subnet CIDR /24 gives 256 IP addresses
+- Private IPs in range 10.0.0.0 are inside the VPC
+- Public IP is what the internet uses to reach your server
+- Always stop EC2 instances when not in use to avoid charges
 
-## Classic AWS Architecture Pattern
-Internet → Internet Gateway → VPC → Public Subnet (web server) → Private Subnet (database)
+Golden Rules
+- Never put a database in a public subnet
+- Always use security groups to restrict access
+- Use private subnets for anything that should not be internet-facing
+- One internet gateway per VPC
+- Route tables control where traffic flows
