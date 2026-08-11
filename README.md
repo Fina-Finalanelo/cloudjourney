@@ -1,107 +1,102 @@
-# Cloud Engineering Journey
+# Cloud Engineering Portfolio
+### Fina Finalanelo | Johannesburg, South Africa
 
-A portfolio documenting my hands-on learning path toward becoming a Junior Cloud Engineer, built on Ubuntu Linux, Git, and AWS.
+Hands-on cloud engineering portfolio documenting real AWS infrastructure builds, Linux system administration, and automation projects. Built while self-studying toward a Junior Cloud Engineer role.
 
-## About Me
-Junior Cloud Engineer in training based in Johannesburg, South Africa.
-Targeting AWS cloud roles with hands-on skills in Linux, networking, and cloud infrastructure.
-Currently self-studying toward AWS Cloud Practitioner certification.
+Contact: finalenelo@gmail.com
+LinkedIn: linkedin.com/in/fina-phele
+Portfolio: http://fina-cloud-portfolio.s3-website-us-east-1.amazonaws.com
 
-## Phase 1: Foundations (Complete)
+---
 
-Linux System Administration
-- File system navigation and management
-- File permissions with chmod and chown
-- User and group management
-- SSH key generation and remote access
-- Package management with apt
-- Process management
-- Service management with systemctl
-- Deployed and managed nginx web server
-- Completed full server setup mini project
+## Skills Demonstrated in This Repository
 
-Networking
-- IPv4 and IPv6 addressing
-- Subnetting and DNS
-- Ports and protocols
-- Firewalls and routing
-- AWS VPC, subnets, security groups, NAT gateway, route tables
+- Linux system administration on Ubuntu 24.04
+- AWS infrastructure: EC2, S3, IAM, VPC, RDS, Lambda, Auto Scaling
+- Cloud networking: VPC, subnets, internet gateway, security groups, route tables
+- Infrastructure as Code with Terraform
+- Python automation with Boto3
+- Containerisation with Docker
+- CI/CD pipelines with GitHub Actions
+- Git version control and documentation
 
-Git and GitHub
-- Repository management
-- Branching and merging
-- Documentation with Markdown
+---
 
-## Phase 2: AWS Core Cloud Skills (Complete)
+## Repository Contents
 
-EC2 - Elastic Compute Cloud
-- Launched Ubuntu EC2 instances on AWS
-- Connected via SSH from Johannesburg to Virginia
-- Installed and configured nginx web server
-- Served live portfolio page to the internet
-- Launched EC2 inside custom VPC
+linux-commands.md
+Comprehensive Linux command reference covering navigation, permissions, users, SSH, package management, processes, services and log files. Built from hands-on practice on a real Ubuntu server.
 
-IAM - Identity and Access Management
-- Created IAM users and groups
-- Attached policies following least privilege principle
-- Created dedicated admin user for daily AWS work
-- Stopped using root account for daily tasks
+server-setup.md
+Step by step guide to setting up a fresh Ubuntu server as a production-ready web server. Documents the exact process used when provisioning real AWS EC2 instances.
 
-S3 - Simple Storage Service
-- Created S3 bucket with static website hosting
-- Configured bucket policy for public access
-- Hosted portfolio webpage on S3
-- Live at: http://fina-cloud-portfolio.s3-website-us-east-1.amazonaws.com
+networking-notes.md
+Cloud networking concepts covering VPC architecture, subnets, internet gateways, security groups, NAT gateways, route tables, Route 53 and Elastic IPs. Applied directly to real AWS builds.
 
-VPC - Virtual Private Cloud
-- Built custom VPC with 10.0.0.0/16 CIDR
-- Created public and private subnets
-- Configured internet gateway and route tables
-- Launched EC2 instance inside custom VPC
-- Confirmed nginx serving from custom VPC server
+iam-notes.md
+AWS IAM documentation covering users, groups, policies, roles and the principle of least privilege. Includes real account structure built on AWS.
 
-RDS - Relational Database Service
-- Created MySQL database in private subnet
-- Configured DB subnet group across multiple AZs
-- Applied secure architecture: database not publicly accessible
+s3-notes.md
+AWS S3 documentation covering bucket creation, static website hosting, bucket policies and public access configuration. Includes live hosted portfolio website.
 
-Auto Scaling and Load Balancing
-- Created launch template for Ubuntu nginx server
-- Configured Auto Scaling Group with min 1, max 3 instances
-- Set target tracking policy: scale when CPU exceeds 50%
+rds-notes.md
+AWS RDS documentation covering MySQL database creation in a private subnet, DB subnet groups, and secure architecture patterns.
 
-Lambda - Serverless Computing
-- Created Python Lambda function
-- Deployed and tested successfully
-- Executed in 1.79ms with zero server management
+autoscaling-notes.md
+Auto Scaling and Load Balancing documentation covering launch templates, Auto Scaling Groups, target tracking policies and load balancer configuration.
 
-## Phase 3: Automation and Modern Tools (In Progress)
-- Terraform
-- Python and Boto3
-- Docker
-- CI/CD with GitHub Actions
+lambda-notes.md
+AWS Lambda documentation covering serverless functions, Python runtime, triggers, and execution results.
 
-## Repository Structure
-- linux-commands.md: Linux command reference guide
-- server-setup.md: Step by step Ubuntu server setup guide
-- networking-notes.md: Cloud networking concepts
-- iam-notes.md: AWS IAM documentation
-- s3-notes.md: AWS S3 and static hosting documentation
-- rds-notes.md: AWS RDS database documentation
-- autoscaling-notes.md: Auto Scaling and Load Balancing documentation
-- lambda-notes.md: AWS Lambda serverless documentation
-- notes.txt: Personal learning notes
+webproject-index.html
+Portfolio webpage served live via both EC2 nginx and S3 static hosting.
 
-## Tools and Technologies
-- Ubuntu 24.04 LTS on WSL2
-- Git 2.43
-- nginx
-- AWS: EC2, IAM, S3, VPC, RDS, Auto Scaling, Lambda
-- Python 3.12
-- Terraform (Phase 3 - upcoming)
-- Docker (Phase 3 - upcoming)
+---
+
+## AWS Architecture Built
+
+Internet
+    |
+Internet Gateway
+    |
+Custom VPC (10.0.0.0/16)
+    |
+    Public Subnet (10.0.0.0/20) - us-east-1a
+    └── EC2 t3.micro (Ubuntu 24.04, nginx)
+        Security Group: ports 22, 80, 443
+    |
+    Private Subnet (10.0.128.0/20) - us-east-1a
+    └── RDS MySQL db.t4g.micro
+        Security Group: port 3306 from public subnet only
+
+Auto Scaling Group: min 1, desired 1, max 3 instances
+Scaling Policy: add capacity when CPU exceeds 50%
+
+---
+
+## Projects
+
+Phase 1: Linux Server Setup
+Built and documented a complete Ubuntu server setup including nginx web server, user management, SSH keys, file permissions and service management. Served a live portfolio webpage from the local nginx server.
+
+Phase 2: AWS Cloud Infrastructure
+Built a complete AWS environment including custom VPC, EC2 web server, S3 static website, IAM security setup, RDS MySQL database, Auto Scaling Group and Lambda function. All resources built hands-on from scratch.
+
+Phase 3: Infrastructure as Code and Automation
+Deployed complete AWS environments using Terraform. Automated cloud resource management with Python and Boto3. Containerised applications with Docker. Built CI/CD pipelines with GitHub Actions for automatic deployment to AWS.
+
+---
+
+## Education
+
+Bachelor of Science in Information Technology
+Richfield Graduate Institute of Technology, Johannesburg
+Expected 2027 | Current aggregate: 78%
+
+---
 
 ## Certifications
-- Cisco Networking Basics (complete)
-- AWS Cloud Practitioner (upcoming)
-- AWS Solutions Architect Associate (planned)
+
+- AWS Certified Cloud Practitioner
+- AWS Certified Solutions Architect Associate
+- Cisco Networking Basics
