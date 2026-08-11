@@ -3,84 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fina Finalanelo | Cloud Engineer in Training</title>
+    <title>Fina Finalanelo | Cloud Engineer</title>
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --charcoal: #111111;
+            --dark-gray: #1F2933;
+            --ivory: #F5F1E8;
+            --cool-gray: #9CA3AF;
+            --accent: #3B82F6;
+            --border: #2D3748;
+        }
+
         body {
-            font-family: Georgia, serif;
-            background-color: #fff0f5;
-            color: #4a4a4a;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
+            background-color: var(--charcoal);
+            color: var(--ivory);
+            font-family: 'Georgia', serif;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 64px 24px;
+            line-height: 1.7;
         }
-        h1 {
-            color: #d63384;
-            font-size: 2.5em;
-            margin-bottom: 5px;
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 40px;
+            margin-bottom: 48px;
         }
-        h2 {
-            color: #e75480;
-            border-bottom: 2px solid #ffb6c1;
-            padding-bottom: 5px;
+
+        header h1 {
+            font-size: 2.4em;
+            font-weight: normal;
+            letter-spacing: -0.5px;
+            color: var(--ivory);
+            margin-bottom: 6px;
         }
-        .subtitle {
-            color: #e75480;
-            font-style: italic;
-            font-size: 1.1em;
-        }
-        .tag {
-            background-color: #ffe4f0;
-            border: 1px solid #ffb6c1;
-            border-radius: 20px;
-            padding: 5px 14px;
-            margin: 4px;
-            display: inline-block;
-            font-size: 14px;
-            color: #d63384;
-        }
-        .section {
-            background-color: #fff8fb;
-            border: 1px solid #ffb6c1;
-            border-radius: 12px;
-            padding: 20px;
+
+        header .role {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9em;
+            color: var(--accent);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             margin-bottom: 20px;
         }
-        a { color: #d63384; }
-        .heart { color: #ff69b4; }
+
+        header .summary {
+            color: var(--cool-gray);
+            font-size: 0.95em;
+            max-width: 620px;
+            margin-bottom: 24px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85em;
+            color: var(--cool-gray);
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            transition: color 0.2s;
+        }
+
+        .contact-links a:hover { color: var(--accent); }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        section h2 {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.75em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .skill-block {
+            margin-bottom: 16px;
+        }
+
+        .skill-block .label {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.78em;
+            color: var(--cool-gray);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8em;
+            color: var(--ivory);
+            background: var(--dark-gray);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 3px;
+        }
+
+        .project {
+            border-left: 2px solid var(--border);
+            padding-left: 20px;
+            margin-bottom: 32px;
+        }
+
+        .project:hover {
+            border-left-color: var(--accent);
+        }
+
+        .project h3 {
+            font-size: 1em;
+            font-weight: normal;
+            color: var(--ivory);
+            margin-bottom: 6px;
+        }
+
+        .project .desc {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85em;
+            color: var(--cool-gray);
+            margin-bottom: 10px;
+        }
+
+        .project ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project ul li {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85em;
+            color: var(--cool-gray);
+            padding: 3px 0;
+        }
+
+        .project ul li::before {
+            content: "— ";
+            color: var(--accent);
+        }
+
+        .cert-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cert {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.88em;
+            color: var(--ivory);
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            background: var(--dark-gray);
+        }
+
+        .edu-block {
+            border-left: 2px solid var(--border);
+            padding-left: 20px;
+        }
+
+        .edu-block h3 {
+            font-size: 1em;
+            font-weight: normal;
+            color: var(--ivory);
+            margin-bottom: 4px;
+        }
+
+        .edu-block p {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85em;
+            color: var(--cool-gray);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8em;
+            color: var(--cool-gray);
+        }
     </style>
 </head>
 <body>
-    <div class="section">
+
+    <header>
         <h1>Fina Finalanelo</h1>
-        <p class="subtitle">Junior Cloud Engineer in Training | Johannesburg, South Africa</p>
-        <p>Building toward AWS cloud roles through hands-on Linux, networking, and cloud infrastructure skills. On a mission to land my first cloud engineering role.</p>
-    </div>
+        <p class="role">Cloud Engineer &nbsp;·&nbsp; AWS &nbsp;·&nbsp; Linux &nbsp;·&nbsp; Automation</p>
+        <p class="summary">
+            Junior Cloud Engineer based in Johannesburg, South Africa. Hands-on experience building AWS infrastructure, administering Linux servers, and automating cloud operations. BSc Information Technology, Richfield Graduate Institute of Technology (expected 2027, 78% aggregate).
+        </p>
+        <div class="contact-links">
+            <a href="mailto:finalenelo@gmail.com">finalenelo@gmail.com</a>
+            <a href="https://linkedin.com/in/fina-phele" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Fina-Finalanelo" target="_blank">GitHub</a>
+        </div>
+    </header>
 
-    <div class="section">
-        <h2>Phase 1 Skills Complete</h2>
-        <span class="tag">Linux Administration</span>
-        <span class="tag">SSH</span>
-        <span class="tag">File Permissions</span>
-        <span class="tag">nginx</span>
-        <span class="tag">systemctl</span>
-        <span class="tag">Git</span>
-        <span class="tag">GitHub</span>
-        <span class="tag">Cloud Networking</span>
-        <span class="tag">VPC</span>
-        <span class="tag">Security Groups</span>
-    </div>
+    <section>
+        <h2>Technical Skills</h2>
 
-    <div class="section">
-        <h2>Currently Learning</h2>
-        <span class="tag">AWS EC2</span>
-        <span class="tag">AWS S3</span>
-        <span class="tag">AWS IAM</span>
-        <span class="tag">AWS VPC</span>
-    </div>
+        <div class="skill-block">
+            <p class="label">Cloud Platform</p>
+            <div class="tags">
+                <span class="tag">AWS EC2</span>
+                <span class="tag">AWS S3</span>
+                <span class="tag">AWS IAM</span>
+                <span class="tag">AWS VPC</span>
+                <span class="tag">AWS RDS</span>
+                <span class="tag">AWS Lambda</span>
+                <span class="tag">Auto Scaling</span>
+                <span class="tag">Elastic Load Balancing</span>
+                <span class="tag">CloudFront</span>
+                <span class="tag">Route 53</span>
+            </div>
+        </div>
 
-    <div class="section">
-        <h2>Links</h2>
-        <p>GitHub: <a href="https://github.com/Fina-Finalanelo">github.com/Fina-Finalanelo</a></p>
-    </div>
+        <div class="skill-block">
+            <p class="label">Infrastructure and Automation</p>
+            <div class="tags">
+                <span class="tag">Terraform</span>
+                <span class="tag">Python</span>
+                <span class="tag">Boto3</span>
+                <span class="tag">Bash</span>
+                <span class="tag">Docker</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">CI/CD</span>
+            </div>
+        </div>
+
+        <div class="skill-block">
+            <p class="label">Systems and Networking</p>
+            <div class="tags">
+                <span class="tag">Ubuntu Linux</span>
+                <span class="tag">SSH</span>
+                <span class="tag">TCP/IP</span>
+                <span class="tag">DNS</span>
+                <span class="tag">Subnetting</span>
+                <span class="tag">Security Groups</span>
+                <span class="tag">NAT Gateway</span>
+                <span class="tag">nginx</span>
+            </div>
+        </div>
+
+        <div class="skill-block">
+            <p class="label">Developer Tools</p>
+            <div class="tags">
+                <span class="tag">Git</span>
+                <span class="tag">GitHub</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">VS Code</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Projects</h2>
+
+        <div class="project">
+            <h3>Custom AWS VPC Architecture</h3>
+            <p class="desc">Built a complete AWS network from scratch with public and private subnets, internet gateway, route tables and security groups.</p>
+            <ul>
+                <li>Custom VPC with CIDR 10.0.0.0/16 across multiple availability zones</li>
+                <li>EC2 web server in public subnet serving live webpage via nginx</li>
+                <li>MySQL RDS database in private subnet with no public access</li>
+                <li>Auto Scaling Group scaling at 50% CPU, min 1 max 3 instances</li>
+                <li>Security groups restricting access on ports 22, 80, 443 and 3306</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h3>Cloud Portfolio Website</h3>
+            <p class="desc">Deployed personal portfolio using two AWS hosting methods to demonstrate S3 and EC2 capabilities.</p>
+            <ul>
+                <li>Static website hosted on S3 with public bucket policy</li>
+                <li>Same page served via EC2 nginx in custom VPC</li>
+                <li>Updates deployed by pulling directly from GitHub to EC2</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h3>Linux Server Administration</h3>
+            <p class="desc">Built and documented a complete Ubuntu server setup simulating real AWS EC2 provisioning.</p>
+            <ul>
+                <li>Installed and configured nginx with systemctl service management</li>
+                <li>Managed users, groups, sudo access and file permissions</li>
+                <li>Generated SSH key pairs and secured private keys with chmod 600</li>
+                <li>Documented full setup process for team reproducibility</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h3>Terraform AWS Infrastructure</h3>
+            <p class="desc">Deployed complete AWS environments from code eliminating manual console configuration.</p>
+            <ul>
+                <li>VPC, subnets, EC2, IAM roles and security groups managed as code</li>
+                <li>Terraform init, plan, apply and destroy workflows</li>
+                <li>Infrastructure version controlled in GitHub</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h3>CI/CD Pipeline with GitHub Actions</h3>
+            <p class="desc">Automated deployment pipeline that deploys to AWS on every GitHub push.</p>
+            <ul>
+                <li>GitHub Actions workflow triggered on push to main branch</li>
+                <li>Automated Terraform plan and apply with safe approvals</li>
+                <li>Zero manual steps from code push to live deployment</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Certifications</h2>
+        <div class="cert-list">
+            <div class="cert">AWS Certified Cloud Practitioner</div>
+            <div class="cert">AWS Certified Solutions Architect Associate</div>
+            <div class="cert">Cisco Networking Basics</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <div class="edu-block">
+            <h3>Bachelor of Science in Information Technology</h3>
+            <p>Richfield Graduate Institute of Technology, Johannesburg &nbsp;·&nbsp; Expected 2027 &nbsp;·&nbsp; Aggregate 78%</p>
+            <p style="margin-top:6px;">Cloud Computing · Database Systems · Programming · Information Systems · Internet Programming</p>
+        </div>
+    </section>
+
+    <footer>
+        Fina Finalanelo &nbsp;·&nbsp; Johannesburg, South Africa &nbsp;·&nbsp; Open to junior cloud engineering roles
+    </footer>
+
 </body>
 </html>
