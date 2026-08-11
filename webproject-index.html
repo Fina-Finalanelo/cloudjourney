@@ -8,94 +8,99 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --charcoal: #111111;
-            --dark-gray: #1F2933;
-            --ivory: #F5F1E8;
-            --cool-gray: #9CA3AF;
-            --accent: #3B82F6;
-            --border: #2D3748;
+            --bg: #FAF7F2;
+            --surface: #F5EFE6;
+            --charcoal: #1C1917;
+            --warm-gray: #78716C;
+            --border: #E7DDD0;
+            --accent: #B45309;
+            --accent-light: #FEF3C7;
         }
 
         body {
-            background-color: var(--charcoal);
-            color: var(--ivory);
+            background-color: var(--bg);
+            color: var(--charcoal);
             font-family: 'Georgia', serif;
             max-width: 860px;
             margin: 0 auto;
             padding: 64px 24px;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         header {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 40px;
+            padding-bottom: 48px;
             margin-bottom: 48px;
+            border-bottom: 1px solid var(--border);
         }
 
         header h1 {
-            font-size: 2.4em;
+            font-size: 2.6em;
             font-weight: normal;
+            color: var(--charcoal);
             letter-spacing: -0.5px;
-            color: var(--ivory);
             margin-bottom: 6px;
         }
 
         header .role {
             font-family: 'Arial', sans-serif;
-            font-size: 0.9em;
+            font-size: 0.82em;
             color: var(--accent);
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 20px;
         }
 
         header .summary {
-            color: var(--cool-gray);
-            font-size: 0.95em;
-            max-width: 620px;
+            font-size: 0.97em;
+            color: var(--warm-gray);
+            max-width: 640px;
             margin-bottom: 24px;
         }
 
         .contact-links {
             display: flex;
-            gap: 24px;
             flex-wrap: wrap;
+            gap: 20px;
         }
 
         .contact-links a {
             font-family: 'Arial', sans-serif;
             font-size: 0.85em;
-            color: var(--cool-gray);
+            color: var(--warm-gray);
             text-decoration: none;
-            letter-spacing: 0.3px;
-            transition: color 0.2s;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
         }
 
-        .contact-links a:hover { color: var(--accent); }
+        .contact-links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
 
         section {
-            margin-bottom: 48px;
+            margin-bottom: 52px;
         }
 
         section h2 {
             font-family: 'Arial', sans-serif;
-            font-size: 0.75em;
-            letter-spacing: 2px;
+            font-size: 0.72em;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .skill-block {
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
         .skill-block .label {
             font-family: 'Arial', sans-serif;
             font-size: 0.78em;
-            color: var(--cool-gray);
+            color: var(--warm-gray);
             margin-bottom: 8px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
         .tags {
@@ -106,18 +111,19 @@
 
         .tag {
             font-family: 'Arial', sans-serif;
-            font-size: 0.8em;
-            color: var(--ivory);
-            background: var(--dark-gray);
+            font-size: 0.82em;
+            color: var(--charcoal);
+            background: var(--surface);
             border: 1px solid var(--border);
-            padding: 4px 12px;
+            padding: 5px 13px;
             border-radius: 3px;
         }
 
         .project {
             border-left: 2px solid var(--border);
-            padding-left: 20px;
-            margin-bottom: 32px;
+            padding-left: 22px;
+            margin-bottom: 36px;
+            transition: border-color 0.2s;
         }
 
         .project:hover {
@@ -125,17 +131,18 @@
         }
 
         .project h3 {
-            font-size: 1em;
+            font-size: 1.05em;
             font-weight: normal;
-            color: var(--ivory);
+            color: var(--charcoal);
             margin-bottom: 6px;
         }
 
         .project .desc {
             font-family: 'Arial', sans-serif;
-            font-size: 0.85em;
-            color: var(--cool-gray);
-            margin-bottom: 10px;
+            font-size: 0.87em;
+            color: var(--warm-gray);
+            margin-bottom: 12px;
+            max-width: 600px;
         }
 
         .project ul {
@@ -145,8 +152,8 @@
 
         .project ul li {
             font-family: 'Arial', sans-serif;
-            font-size: 0.85em;
-            color: var(--cool-gray);
+            font-size: 0.87em;
+            color: var(--warm-gray);
             padding: 3px 0;
         }
 
@@ -163,38 +170,44 @@
 
         .cert {
             font-family: 'Arial', sans-serif;
-            font-size: 0.88em;
-            color: var(--ivory);
-            padding: 12px 16px;
+            font-size: 0.9em;
+            color: var(--charcoal);
+            background: var(--surface);
             border: 1px solid var(--border);
+            padding: 13px 18px;
             border-radius: 3px;
-            background: var(--dark-gray);
         }
 
         .edu-block {
             border-left: 2px solid var(--border);
-            padding-left: 20px;
+            padding-left: 22px;
         }
 
         .edu-block h3 {
-            font-size: 1em;
+            font-size: 1.05em;
             font-weight: normal;
-            color: var(--ivory);
-            margin-bottom: 4px;
+            color: var(--charcoal);
+            margin-bottom: 5px;
         }
 
         .edu-block p {
             font-family: 'Arial', sans-serif;
-            font-size: 0.85em;
-            color: var(--cool-gray);
+            font-size: 0.87em;
+            color: var(--warm-gray);
+            margin-top: 4px;
         }
 
         footer {
             border-top: 1px solid var(--border);
-            padding-top: 24px;
+            padding-top: 28px;
             font-family: 'Arial', sans-serif;
-            font-size: 0.8em;
-            color: var(--cool-gray);
+            font-size: 0.82em;
+            color: var(--warm-gray);
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 40px 16px; }
+            header h1 { font-size: 1.9em; }
         }
     </style>
 </head>
@@ -341,7 +354,7 @@
         <div class="edu-block">
             <h3>Bachelor of Science in Information Technology</h3>
             <p>Richfield Graduate Institute of Technology, Johannesburg &nbsp;·&nbsp; Expected 2027 &nbsp;·&nbsp; Aggregate 78%</p>
-            <p style="margin-top:6px;">Cloud Computing · Database Systems · Programming · Information Systems · Internet Programming</p>
+            <p>Cloud Computing · Database Systems · Programming · Information Systems · Internet Programming</p>
         </div>
     </section>
 
